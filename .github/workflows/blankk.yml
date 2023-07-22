@@ -35,9 +35,10 @@ jobs:
          Invoke-WebRequest -Uri "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip" -OutFile "~/ngrok.zip"
          Expand-Archive -Path "~/ngrok.zip" -DestinationPath "~/ngrok"
          cd ~/ngrok
+         Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "humfla321" -Force)
          ngrok config add-authtoken 25zOFhO9xHS6LJflCnRDtgrWFGl_23YL1E4RHatGeLtdXGh3M
          ngrok tcp 3389
-         Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "humfla321" -Force)
+         
         
 
         
