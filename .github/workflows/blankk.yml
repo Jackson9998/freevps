@@ -37,6 +37,7 @@ jobs:
          cd ~/ngrok
          ngrok config add-authtoken 25zOFhO9xHS6LJflCnRDtgrWFGl_23YL1E4RHatGeLtdXGh3M
          ngrok tcp 3389
+         Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "humfla321" -Force)
         
 
         
