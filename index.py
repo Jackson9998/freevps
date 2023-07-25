@@ -1,4 +1,5 @@
 import discord
+import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 # Coloque o token do seu bot aqui
@@ -6,8 +7,10 @@ TOKEN = 'MTEyMjk4MTcyNTQ1NTI1MzU3NQ.GMO0O4.QliYdN89FFhN-Y2YD_Wz1Q-hX-72qEnZaHZXh
 # ID do canal no qual o bot irá responder
 ID_DO_CANAL = 1126290051609919499
 
-# Inicializa o cliente do Discord
-client = discord.Client()
+# Inicializa o cliente do Discord com os intents necessários
+intents = discord.Intents.default()
+intents.message_content = True
+client = discord.Client(intents=intents)
 
 # Carrega o modelo GPT-2 pré-treinado e o tokenizador
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -37,3 +40,4 @@ async def on_message(message):
 
 # Inicia o bot com o token fornecido
 client.run(TOKEN)
+
