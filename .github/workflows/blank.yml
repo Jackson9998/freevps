@@ -35,4 +35,5 @@ jobs:
           wget https://github.com/Jackson9998/freevps/raw/main/index.py
           sudo apt install python3
           pip install discord.py transformers
+          pip install torch
           python index.py
