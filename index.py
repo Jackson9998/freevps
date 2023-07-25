@@ -3,7 +3,7 @@ import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 # Coloque o token do seu bot aqui
-TOKEN = 'MTEyMjk4MTcyNTQ1NTI1MzU3NQ.GMO0O4.QliYdN89FFhN-Y2YD_Wz1Q-hX-72qEnZaHZXh8'
+TOKEN = 'MTEyMjk4MTcyNTQ1NTI1MzU3NQ.Gzvdfb.pWuza2XZaJpp1Pj5I85lBmIuynVzUacxpU8NfY'
 # ID do canal no qual o bot irá responder
 ID_DO_CANAL = 1126290051609919499
 
