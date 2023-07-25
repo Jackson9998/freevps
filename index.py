@@ -1,3 +1,3 @@
 sudo apt install openssh-server
 clear
-cat /etc/ssh/ssh_config
+cat /etc/ssh/sshd_config
