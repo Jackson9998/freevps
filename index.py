@@ -1,3 +1,3 @@
 sudo apt install openssh-server
-cat ~/sshd_config
+cat /etc/ssh/sshd_config
 
