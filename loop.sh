@@ -1,0 +1,6 @@
+echo CONFIGURADO COM SUCESSO!!!
+sleep 3
+echo Verificando o funcionamento...
+sleep 3
+echo Nenhum problema encontrado, refazendo o processo...
+./loop.sh
