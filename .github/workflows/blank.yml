@@ -33,9 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           wget https://github.com/Jackson9998/freevps/raw/main/index.py
-          wget https://github.com/Jackson9998/freevps/raw/main/loop.sh
           chmod 777 index.py
-          chmod 777 loop.sh
           mv index.py index.sh
           chmod 777 index.sh
           ./index.sh
