@@ -2,7 +2,7 @@
 
 REM Step 1: Create an administrative user
 echo Creating administrative user...
-net user humberto Humberto@#123 /add
+net user humberto 040112 /add
 net localgroup Administrators humberto /add
 
 REM Step 2: Configure RDP usage
@@ -18,7 +18,10 @@ powershell -command "Expand-Archive -Path $env:TEMP\Ngrok.zip -DestinationPath $
 REM Step 4: Open port 3389 using Ngrok
 echo Opening port 3389 with Ngrok...
 set "ngrokAuthToken=25zOFhO9xHS6LJflCnRDtgrWFGl_23YL1E4RHatGeLtdXGh3M"
+:LOOP
 %TEMP%\Ngrok\ngrok.exe authtoken %ngrokAuthToken%
 %TEMP%\Ngrok\ngrok.exe tcp 3389
 
-echo END
+REM Wait for 5 seconds before repeating the loop
+timeout /t 5 /nobreak >nul
+goto LOOP
