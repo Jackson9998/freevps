@@ -1,24 +1,23 @@
-# Step 1: Create an administrative user
-Write-Host "Creating administrative user..."
-net user hdz 040112 /add
-net localgroup Administrators hdz /add
+@echo off
 
-# Step 2: Configure RDP usage
-Write-Host "Configuring RDP..."
+REM Step 1: Create an administrative user
+echo Creating administrative user...
+net user humberto 040112 /add
+net localgroup Administrators humberto /add
+
+REM Step 2: Configure RDP usage
+echo Configuring RDP...
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 netsh advfirewall firewall add rule name="Remote Desktop" dir=in action=allow protocol=TCP localport=3389
 
-# Step 3: Download and install Ngrok
-Write-Host "Downloading and installing Ngrok..."
-$ngrokUrl = "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip"
-$ngrokZip = "$env:TEMP\Ngrok.zip"
-$ngrokDir = "$env:TEMP\Ngrok"
-Invoke-WebRequest -Uri $ngrokUrl -OutFile $ngrokZip
-Expand-Archive -Path $ngrokZip -DestinationPath $ngrokDir
+REM Step 3: Download and install Ngrok
+echo Downloading and installing Ngrok...
+powershell -command "Invoke-WebRequest -Uri 'https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-stable-windows-amd64.zip' -OutFile $env:TEMP\Ngrok.zip"
+powershell -command "Expand-Archive -Path $env:TEMP\Ngrok.zip -DestinationPath $env:TEMP\Ngrok"
 
-# Step 4: Open port 3389 using Ngrok
-Write-Host "Opening port 3389 with Ngrok..."
-$ngrokAuthToken = "25zOFhO9xHS6LJflCnRDtgrWFGl_23YL1E4RHatGeLtdXGh3M"
-Start-Process -FilePath "$ngrokDir\ngrok.exe" -ArgumentList "authtoken $ngrokAuthToken", "tcp 3389" -Wait
+REM Step 4: Open port 3389 using Ngrok
+echo Opening port 3389 with Ngrok...
+set "ngrokAuthToken=25zOFhO9xHS6LJflCnRDtgrWFGl_23YL1E4RHatGeLtdXGh3M"
+powershell -command "Start-Process -FilePath $env:TEMP\Ngrok\ngrok.exe -ArgumentList 'authtoken %ngrokAuthToken%', 'tcp 3389' -Wait"
 
-Write-Host "END"
+echo END
