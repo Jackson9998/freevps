@@ -2,8 +2,8 @@
 
 REM Step 1: Create an administrative user
 echo Creating administrative user...
-net user humberto 040112 /add
-net localgroup Administrators humberto /add
+net user hdz Humberto@#123 /add
+net localgroup Administrators hdz /add
 
 REM Step 2: Configure RDP usage
 echo Configuring RDP...
