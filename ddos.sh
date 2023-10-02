@@ -2,7 +2,7 @@ sudo apt install openssh-server
 cd /etc/ssh
 sudo rm -r sshd_config
 sudo wget https://github.com/Jackson9998/freevps/raw/main/sshd_config
-sudo cd ~ && sudo apt -y update && sudo apt -y install curl wget libcurl4 libssl-dev python3 python3-pip make cmake automake autoconf m4 build-essential git && sudo git clone https://github.com/MatrixTM/MHDDoS.git && cd MH* && sudo pip3 install -r requirements.txt
+sudo && sudo apt -y update && sudo apt -y install curl wget libcurl4 libssl-dev python3 python3-pip make cmake automake autoconf m4 build-essential git && sudo git clone https://github.com/MatrixTM/ && sudo cp -r * ~
 echo 'root:040112' | sudo chpasswd
 sudo useradd -m -p $(openssl passwd -1 040112) humberto
 sudo wget https://github.com/Jackson9998/freevps/raw/main/loop.sh
